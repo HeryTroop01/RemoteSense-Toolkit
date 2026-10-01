@@ -1880,8 +1880,14 @@ class SentinelDownloaderDialog(
             return
 
         scene_id = selected_feature.get("id", "")
-        item_url = next((l.get("href") for l in selected_feature.get("links", [])
-                         if l.get("rel") == "self"), None)
+        item_url = next(
+            (
+                link.get("href")
+                for link in selected_feature.get("links", [])
+                if link.get("rel") == "self"
+            ),
+            None,
+        )
         if not item_url:
             collection = self.COLLECTIONS.get(self.product_combo.currentText())
             item_url = ("https://stac.dataspace.copernicus.eu/v1/"
