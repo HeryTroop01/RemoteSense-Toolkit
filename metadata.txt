@@ -2,7 +2,7 @@
 name=RemoteSense Toolkit
 qgisMinimumVersion=3.28
 description=Remote sensing dataset exploration, download, import, and processing toolkit for QGIS.
-version=1.0.0
+version=1.0.1
 author=Punithan
 email=punithanvadivel28@gmail.com
 about=RemoteSense Toolkit provides an extensible workflow for exploring, downloading, importing, clipping, extracting, preprocessing, combining, and analysing remote sensing datasets in QGIS.
