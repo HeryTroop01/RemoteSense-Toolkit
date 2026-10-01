@@ -377,7 +377,7 @@ class CreateBandSetAlgorithm(QgsProcessingAlgorithm):
                 or ""
             )
         except Exception:
-            pass
+            description = ""
 
         if description.strip():
             return (

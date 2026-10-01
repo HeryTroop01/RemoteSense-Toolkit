@@ -173,7 +173,7 @@ class WindowsCredentialLocker:
             credential = credential_ptr.contents
             username = credential.UserName or ""
             size = int(credential.CredentialBlobSize)
-            password = ""
+            password = None
             if size and credential.CredentialBlob:
                 raw = ctypes.string_at(credential.CredentialBlob, size)
                 password = raw.decode("utf-8")
