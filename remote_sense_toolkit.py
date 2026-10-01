@@ -27,7 +27,7 @@ from pathlib import Path
 from qgis.PyQt.QtCore import QCoreApplication
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
-from qgis.core import QgsApplication
+from qgis.core import QgsApplication, QgsMessageLog, Qgis
 
 from .remote_sense_toolkit_dialog import RemoteSenseToolkitDialog
 from .processing.remote_sense_provider import RemoteSenseProvider
@@ -98,8 +98,12 @@ class RemoteSenseToolkit:
                 QgsApplication.processingRegistry().removeProvider(
                     self.provider
                 )
-            except Exception:
-                pass
+            except Exception as exc:
+                QgsMessageLog.logMessage(
+                    f"Failed to remove RemoteSense Toolkit Processing provider: {exc}",
+                    "RemoteSense Toolkit",
+                    Qgis.Warning,
+                )
             finally:
                 self.provider = None
 

@@ -173,7 +173,7 @@ class WindowsCredentialLocker:
             credential = credential_ptr.contents
             username = credential.UserName or ""
             size = int(credential.CredentialBlobSize)
-            password = ""
+            password = None
             if size and credential.CredentialBlob:
                 raw = ctypes.string_at(credential.CredentialBlob, size)
                 password = raw.decode("utf-8")
@@ -1880,8 +1880,14 @@ class SentinelDownloaderDialog(
             return
 
         scene_id = selected_feature.get("id", "")
-        item_url = next((l.get("href") for l in selected_feature.get("links", [])
-                         if l.get("rel") == "self"), None)
+        item_url = next(
+            (
+                link.get("href")
+                for link in selected_feature.get("links", [])
+                if link.get("rel") == "self"
+            ),
+            None,
+        )
         if not item_url:
             collection = self.COLLECTIONS.get(self.product_combo.currentText())
             item_url = ("https://stac.dataspace.copernicus.eu/v1/"
@@ -2347,7 +2353,7 @@ class SentinelDownloaderDialog(
 
         username, password, remember = credentials
 
-        token_url = (
+        CDSE_TOKEN_ENDPOINT = (  # nosec B105 - public CDSE OAuth token endpoint, not a credential
             "https://identity.dataspace.copernicus.eu/"
             "auth/realms/CDSE/protocol/openid-connect/token"
         )
@@ -2361,7 +2367,7 @@ class SentinelDownloaderDialog(
 
         try:
             response = requests.post(
-                token_url,
+                CDSE_TOKEN_ENDPOINT,
                 data=payload,
                 timeout=60,
             )

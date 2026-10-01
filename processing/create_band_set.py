@@ -377,7 +377,7 @@ class CreateBandSetAlgorithm(QgsProcessingAlgorithm):
                 or ""
             )
         except Exception:
-            pass
+            description = ""
 
         if description.strip():
             return (
@@ -697,9 +697,15 @@ class CreateBandSetAlgorithm(QgsProcessingAlgorithm):
     def _xml_escape(self, value):
         """Escape a value for insertion into VRT XML."""
 
-        import xml.sax.saxutils as saxutils
-
-        return saxutils.escape(str(value))
+        value = str(value)
+        return (
+            value
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace('"', "&quot;")
+            .replace("'", "&apos;")
+        )
 
     def _build_bandset_vrt(
         self,
@@ -1618,13 +1624,7 @@ class CreateBandSetAlgorithm(QgsProcessingAlgorithm):
             }
 
         finally:
-            try:
-                shutil.rmtree(
-                    str(source_dir),
-                    ignore_errors=True,
-                )
-            except Exception:
-                pass
-
-            if temporary_output_folder:
-                pass
+            shutil.rmtree(
+                str(source_dir),
+                ignore_errors=True,
+            )
