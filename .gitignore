@@ -1,0 +1,57 @@
+# ============================================================
+# RemoteSense Toolkit - Git Ignore
+# ============================================================
+
+# Python cache / compiled files
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Environment / secret files
+.env
+.env.*
+*.secret
+*.secrets
+*.token
+*.credentials
+
+# Authentication / credential exports
+credentials.json
+token.json
+tokens.json
+secrets.json
+
+# Python test / coverage output
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build / packaging output
+build/
+dist/
+*.egg-info/
+
+# QGIS / plugin temporary files
+*.zip

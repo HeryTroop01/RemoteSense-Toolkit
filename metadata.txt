@@ -1,0 +1,14 @@
+[general]
+name=RemoteSense Toolkit
+qgisMinimumVersion=3.28
+description=Remote sensing dataset exploration, download, import, and processing toolkit for QGIS.
+version=1.0.0
+author=Punithan
+about=RemoteSense Toolkit provides an extensible workflow for exploring, downloading, importing, clipping, extracting, preprocessing, combining, and analysing remote sensing datasets in QGIS.
+category=Raster
+icon=icon.png
+experimental=False
+deprecated=False
+tags=remote sensing,raster,SAR,Sentinel-1,Sentinel-2,GIS,processing
+license=MIT
+hasProcessingProvider=yes
