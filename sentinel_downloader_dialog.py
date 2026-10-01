@@ -2347,7 +2347,7 @@ class SentinelDownloaderDialog(
 
         username, password, remember = credentials
 
-        CDSE_TOKEN_ENDPOINT = (
+        CDSE_TOKEN_ENDPOINT = (  # nosec B105 - public CDSE OAuth token endpoint, not a credential
             "https://identity.dataspace.copernicus.eu/"
             "auth/realms/CDSE/protocol/openid-connect/token"
         )
