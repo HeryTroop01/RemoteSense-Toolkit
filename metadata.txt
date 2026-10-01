@@ -12,3 +12,6 @@ deprecated=False
 tags=remote sensing,raster,SAR,Sentinel-1,Sentinel-2,GIS,processing
 license=MIT
 hasProcessingProvider=yes
+homepage=https://github.com/HeryTroop01/RemoteSense-Toolkit
+repository=https://github.com/HeryTroop01/RemoteSense-Toolkit
+tracker=https://github.com/HeryTroop01/RemoteSense-Toolkit/issues
