@@ -2347,7 +2347,7 @@ class SentinelDownloaderDialog(
 
         username, password, remember = credentials
 
-        token_url = (
+        CDSE_TOKEN_ENDPOINT = (
             "https://identity.dataspace.copernicus.eu/"
             "auth/realms/CDSE/protocol/openid-connect/token"
         )
@@ -2361,7 +2361,7 @@ class SentinelDownloaderDialog(
 
         try:
             response = requests.post(
-                token_url,
+                CDSE_TOKEN_ENDPOINT,
                 data=payload,
                 timeout=60,
             )
